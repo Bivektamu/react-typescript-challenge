@@ -45,7 +45,7 @@ const SkillForm = ({ submitHandler, setStage }: Props) => {
                 <label htmlFor="expert">Expert</label>
             </fieldset>
 
-            {error && <><br />{error}<br /><br /></>}
+            {error && <><br /><span data-testid="error">{error}</span><br /><br /></>}
            
             <button type="button" onClick={()=>setStage((prev)=>prev-1)}>Go Back</button>
             <button type="submit">Next Step</button>
