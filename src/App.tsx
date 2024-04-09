@@ -1,12 +1,12 @@
 import './App.css'
-import Toast from './components/Toast'
+import MultiStepForm from './components/MultiStepForm'
 
 function App() {
 
 
   return (
     <>
-      <Toast />
+      <MultiStepForm />
     </>
   )
 }
