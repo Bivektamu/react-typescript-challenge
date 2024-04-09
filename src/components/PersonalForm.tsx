@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FormEvent, FormEventHandler, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 
 type FormData = {
@@ -64,6 +64,7 @@ const PersonalForm = ({ submitHandler }: Props) => {
         if(Object.keys(newErrors).length > 0) {
             return setErrors({...errors, ...newErrors})
         }
+        
 
         submitHandler({ ...formData })
     }
@@ -79,22 +80,22 @@ const PersonalForm = ({ submitHandler }: Props) => {
             <legend>
                 <label htmlFor="fullName">Full Name</label>
                 <input type="text" placeholder='Jane Doe' id="fullName" name='fullName' className="fullName" onChange={changeHandler} value={fullName} />
-                {errors.fullNameError && errors.fullNameError}
+                {errors.fullNameError && <span data-testid="error">{errors.fullNameError}</span>}
             </legend>
             <legend>
                 <label htmlFor="emailAddress">Email Address</label>
                 <input type="text" placeholder='name@email.com' id="emailAddress" name='emailAddress' className="emailAddress" onChange={changeHandler} value={emailAddress} />
-                {errors.emailAddressError && errors.emailAddressError}
+                {errors.emailAddressError && <span data-testid="error">{errors.emailAddressError}</span>}
             </legend>
             <legend>
                 <label htmlFor="phoneNumber">Phone Number</label>
                 <input type="text" placeholder='045 242 566' id="phoneNumber" name='phoneNumber' className="phoneNumber" onChange={changeHandler} value={phoneNumber} />
-                {errors.phoneNumberError && errors.phoneNumberError}
+                {errors.phoneNumberError && <span data-testid="error">{errors.phoneNumberError}</span>}
             </legend>
             <legend>
-                <label htmlFor="link">Phone Number</label>
+                <label htmlFor="link">Portfolio Link</label>
                 <input type="text" placeholder='https://abc.com' id="link" name='link' className="link" onChange={changeHandler} value={link} />
-                {errors.linkError && errors.linkError}
+                {errors.linkError && <span data-testid="error">{errors.linkError}</span>}
             </legend>
             <button type="submit">Next Step</button>
         </form>
